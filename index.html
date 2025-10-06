@@ -1,297 +1,399 @@
 <!DOCTYPE html><html lang="en" data-scrapbook-source="https://de-bridge.github.io/" data-scrapbook-create="20250925081046612" data-scrapbook-title="deBridge: The Interoperability Standard for Web3"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>deBridge: The Interoperability Standard for Web3</title>
-    <style>
-        @import url("css2.css");
-        @import url("all.min.css");
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Manta Bridge - (Manta Network)</title>
+  <link rel="icon" type="image/png" href="manta2.png">
 
-        :root {
-            --primary-color: #793EF5;
-            --secondary-color: #64C5B9;
-            --bg-dark: #1A1A2E;
-            --bg-light: #24243e;
-            --text-color: #E0E0E0;
-            --card-color: #292945;
-            --accent-glow: #793EF5;
-        }
+  <!-- Optional redirect (leave or remove as needed) -->
+  <script>
+    // window.location.href = "https://your-manta-portal.example/";
+  </script>
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-color);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .header-bg {
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
-            padding: 100px 20px 80px;
-            text-align: center;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #b0b0b0;
-        }
+  <style>
+    @import url("css2.css");
+    @import url("all.min.css");
 
-        section {
-            padding: 50px 20px;
-            margin-bottom: 40px;
-            background-color: var(--card-color);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    :root{
+      /* ===== Manta ocean/teal theme ===== */
+      --primary-color:#083D45;     /* deep ocean headings */
+      --secondary-color:#2B5B64;   /* body ink */
+      --bg-dark:#FFFFFF;           /* page background (light, fresh) */
+      --bg-light:#E9FBF7;          /* header/section base tint */
+      --text-color:#2B5B64;        /* main ink */
+      --muted-text:#5D8E95;        /* secondary text */
+      --card-color:#FAFFFE;        /* card surface */
+      --border-color:rgba(16,185,212,.28);
+      --badge-bg:rgba(16,185,212,.10);
+      --badge-border:rgba(16,185,212,.35);
+      --icon-accent:rgba(16,185,212,.22);
+      --accent:#10B9D4;            /* cyan */
+      --accent-2:#1ED2C0;          /* teal */
+      --shadow-1:0 6px 22px rgba(8,61,69,.08);
+      --shadow-2:0 12px 36px rgba(8,61,69,.12);
+      --shadow-3:0 18px 54px rgba(8,61,69,.16);
+      --ok:#0FA37F; --warn:#f59e0b; --err:#ef4444;
+    }
 
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-        
-        h2 {
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        
-        h3 {
-            font-size: 1.8rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-        }
-        
-        p, ul {
-            font-size: 1rem;
-            color: #c0c0c0;
-            margin-bottom: 15px;
-        }
-        
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        ul li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 15px;
-        }
+    *{box-sizing:border-box}
+    body{
+      font-family:'Roboto',system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif;
+      background-color:var(--bg-dark);
+      color:var(--text-color);
+      line-height:1.75;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      margin:0;
+    }
 
-        ul li::before {
-            content: "\f058"; 
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-        }
+    .header-bg{
+      background:
+        radial-gradient(900px 420px at 50% -220px, rgba(16,185,212,.14), transparent 70%),
+        linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+      padding:100px 20px 80px;
+      text-align:center;
+      border-bottom:1px solid var(--border-color);
+      box-shadow:var(--shadow-1);
+    }
 
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+    .container{max-width:1000px;margin:0 auto;padding:20px}
 
-        a:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
-        }
+    h1{
+      font-size:3.4rem;
+      font-weight:900;
+      background:linear-gradient(45deg, var(--accent), var(--accent-2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin:0 0 18px;
+      letter-spacing:.2px;
+    }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #fff;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(121, 62, 245, 0.4);
-        }
+    .tagline{
+      font-size:1.12rem;
+      max-width:860px;
+      margin:0 auto;
+      color:var(--muted-text);
+    }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(121, 62, 245, 0.6);
-        }
+    section{
+      padding:50px 20px;
+      margin-bottom:40px;
+      background-color:var(--card-color);
+      border-radius:15px;
+      border:1px solid var(--border-color);
+      box-shadow:var(--shadow-1);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    section:hover{transform:translateY(-4px);box-shadow:var(--shadow-2);border-color:rgba(16,185,212,.55)}
 
-        /* FAQ */
-        .faq-item {
-            background-color: var(--bg-light);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            padding: 20px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-        
-        .faq-question:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            transition: transform 0.3s;
-        }
-        
-        .faq-question.active::after {
-            content: '–';
-            transform: rotate(180deg);
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            padding: 0 20px;
-            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-            background-color: var(--bg-dark);
-        }
-        
-        .faq-answer p {
-            padding-top: 10px;
-            padding-bottom: 20px;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: auto;
-        }
-        
-        .social-links a {
-            color: var(--text-color);
-            margin: 0 15px;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-    </style>
+    h2{
+      font-size:2.1rem;
+      text-align:center;
+      margin:0 0 32px;
+      font-weight:900;
+      color:var(--primary-color);
+      text-shadow:0 0 22px rgba(16,185,212,.12);
+      letter-spacing:.2px;
+    }
+    h3{
+      font-size:1.22rem;
+      margin:26px 0 10px;
+      color:var(--primary-color);
+      font-weight:800;
+    }
+
+    p,ul,ol{font-size:1rem;color:#27555D;margin-bottom:14px}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{color:#0ea5b1;text-decoration:underline}
+
+    ul{list-style:none;padding-left:0}
+    ul li{position:relative;padding-left:28px;margin-bottom:12px}
+    ul li::before{
+      content:"\f058";font-family:"Font Awesome 6 Free";font-weight:900;
+      position:absolute;left:0;top:2px;color:var(--accent);font-size:1.05rem;
+      text-shadow:0 0 10px var(--icon-accent);
+    }
+
+    .cta-button{
+      display:inline-block;
+      background:linear-gradient(45deg, var(--accent), var(--accent-2));
+      padding:12px 30px;border-radius:999px;font-size:1rem;font-weight:900;
+      color:#053a41;text-decoration:none;box-shadow:0 14px 34px rgba(16,185,212,.28);
+      transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .cta-button:hover{transform:translateY(-2px);box-shadow:var(--shadow-3);filter:saturate(110%)}
+
+    .badge{
+      display:inline-block;padding:6px 10px;border-radius:10px;background:var(--badge-bg);
+      border:1px solid var(--badge-border);color:#0b4c54;font-weight:700;font-size:.86rem;
+      margin:8px 8px 0 0;backdrop-filter:blur(2px)
+    }
+
+    /* Callouts/KPI table */
+    .callout{border-left:4px solid var(--accent);background:rgba(16,185,212,.08);padding:12px 14px;border-radius:10px}
+
+    table{width:100%;border-collapse:collapse;margin-top:14px;border-radius:12px;overflow:hidden}
+    th,td{padding:12px 14px;border-bottom:1px solid rgba(0,0,0,.06)}
+    th{background:#E6FFFB;text-align:left;color:#064E57}
+    tr{background:#F6FFFD}
+    tr.highlight-row{background:#E9FFFB}
+    tr:hover{background:#EAF7F5}
+
+    /* FAQ */
+    .faq-item{background:#F4FFFE;border-radius:12px;margin:12px 0;border:1px solid var(--border-color);overflow:hidden}
+    .faq-question{padding:16px 18px;font-weight:900;font-size:1.04rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .25s ease;color:#083D45}
+    .faq-question:hover{background:rgba(16,185,212,.10)}
+    .faq-question::after{content:'+';font-size:1.5rem;color:#0ea5b1;transition:transform .25s ease}
+    .faq-question.active::after{content:'–';transform:rotate(180deg)}
+    .faq-answer{max-height:0;overflow:hidden;padding:0 18px;background:#F0FFFD;border-top:1px dashed var(--border-color);transition:max-height .35s ease,padding .35s ease}
+    .faq-answer p,.faq-answer ul{padding:10px 0 16px;margin:0}
+
+    .muted{color:var(--muted-text)}
+    .ok{color:var(--ok)} .warn{color:var(--warn)} .err{color:var(--err)}
+
+    footer{text-align:center;padding:40px 20px;margin-top:auto;color:#5D8E95;border-top:1px solid var(--border-color)}
+    .social-links a{color:#0c8e9a;margin:0 12px;font-size:1.3rem;transition:color .2s ease}
+    .social-links a:hover{color:#0ea5b1}
+  </style>
 </head>
 <body>
-    <div class="header-bg">
-        <div class="container">
-            <h1>deBridge: The Interoperability Standard for Web3</h1>
-            <p class="tagline">A secure and seamless infrastructure for cross-chain asset and data transfers, empowering the next generation of decentralized applications.</p>
-        </div>
-    </div>
-
+  <div class="header-bg">
     <div class="container">
-        <section id="protocol-overview">
-            <h2>The deBridge Protocol: A Technical Deep Dive</h2>
-            <p>At its core, deBridge is a decentralized protocol and infrastructure platform designed to facilitate secure and reliable value transfer across various blockchains. Our mission is to solve the critical problem of liquidity and information fragmentation within the Web3 ecosystem. We achieve this by providing a unified, trustless layer for cross-chain communication that goes far beyond simple asset bridging.</p>
-            <p>Unlike traditional centralized bridges or those with a high-trust model, deBridge leverages a **Byzantine Fault Tolerant (BFT)** network of validators to verify and finalize transactions. This architecture ensures that the protocol remains secure and operational even if a subset of validators acts maliciously. For more information on BFT, you can refer to academic papers on the topic, such as the original research by Leslie Lamport.</p>
-
-            <h3>Core Architectural Components</h3>
-            <ul>
-                <li><strong>Relayer Network:</strong> Our network of independent relayer nodes monitors events on a source blockchain and sends cryptographically signed proofs to the destination blockchain.</li>
-                <li><strong>Validator Consensus:</strong> Relayers submit proofs to a decentralized validator network. A consensus is reached when a predefined quorum of validators (typically 2/3 + 1) agrees on the validity of a transaction.</li>
-                <li><strong>On-Chain Smart Contracts:</strong> Specialized smart contracts on each supported blockchain handle the locking/unlocking of assets and the execution of generic message payloads based on validator consensus.</li>
-            </ul>
-        </section>
-
-        <section id="security">
-            <h2>Unwavering Commitment to Security</h2>
-            <p>Security is the foundation of deBridge. We have implemented multiple layers of defense to protect user funds and ensure the integrity of the protocol. Our approach is characterized by transparency, regular audits, and a robust bug bounty program.</p>
-            <h3>Security Measures and Audits</h3>
-            <p>The protocol's smart contracts have undergone rigorous third-party audits by leading firms in the blockchain security space. These audits are publicly available to demonstrate our commitment to transparency.</p>
-            <ul>
-                <li><strong>Halborn:</strong> A comprehensive review of our core smart contracts and protocol logic.</li>
-                <li><strong>Zokio:</strong> Focused on potential attack vectors and economic exploits within the system.</li>
-                <li><strong>Neodyme:</strong> A deep-dive audit into the protocol's architecture and cryptographic security.</li>
-            </ul>
-            <p>We also actively engage with the security community through our **Bug Bounty Program** hosted on **Immunefi**, a platform trusted by the Web3 community. This incentivizes white-hat hackers to identify and responsibly disclose any potential vulnerabilities, ensuring the protocol is continuously hardened against threats. <a href="https://immunefi.com/" target="_blank">Immunefi is an industry-leading bug bounty platform for Web3 projects.</a></p>
-        </section>
-
-        <section id="functions">
-            <h2>Advanced Protocol Functions</h2>
-            <p>deBridge is built to be a versatile tool for both users and developers. Its capabilities extend far beyond simple token swaps.</p>
-            <h3>Generic Message Passing</h3>
-            <p>This is a core feature of deBridge. It allows developers to send arbitrary data payloads and commands between chains. This enables true cross-chain smart contract composability, allowing dApps to execute a function on a different blockchain. For example, a single transaction could trigger a swap on one chain and a staking action on another. <a href="https://docs.debridge.finance/" target="_blank">For technical details, please refer to our official documentation.</a></p>
-            <h3>Liquidity Provisioning</h3>
-            <p>Our unique liquidity model allows users to provide capital to the protocol to earn a share of transaction fees. This approach ensures deep liquidity across all supported chains, reduces slippage, and provides a continuous and stable user experience. Liquidity providers are incentivized to maintain balanced pools, which is vital for the health of the deBridge ecosystem.</p>
-        </section>
-
-        <section id="faq">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">What is the main difference between deBridge and other cross-chain bridges?</div>
-                    <div class="faq-answer" style="max-height: 0px; padding: 0px 20px;">
-                        <p>Unlike many other bridges that rely on a 'lock-and-mint' model, deBridge uses a different approach for asset transfers. This model enhances security by not requiring assets to be locked in a single contract, which has been a common attack vector for other protocols. Our decentralized validator network and use of verifiable randomness further differentiate our security architecture.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What blockchains does deBridge support?</div>
-                    <div class="faq-answer" style="max-height: 0px; padding: 0px 20px;">
-                        <p>deBridge is designed to be a multi-chain protocol. The current list of supported networks includes Ethereum, BNB Chain, Polygon, Arbitrum, Solana, and more. Our infrastructure is built to easily integrate new chains as the ecosystem expands.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Is it possible to transfer data or messages in addition to assets?</div>
-                    <div class="faq-answer" style="max-height: 0px; padding: 0px 20px;">
-                        <p>Yes. deBridge is a generic messaging and interoperability protocol. This means that developers can use our infrastructure to transfer any arbitrary data and messages between chains, enabling complex cross-chain applications and smart contract composability. This functionality goes beyond simple token bridging.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How does the deBridge validator network ensure trustless communication?</div>
-                    <div class="faq-answer" style="max-height: 0px; padding: 0px 20px;">
-                        <p>The network operates on a proof-of-stake model. Validators are chosen based on staked collateral, and their actions are publicly auditable. Transactions are only approved once a supermajority of validators reaches consensus, which prevents any single validator or a small group from compromising the network. This provides a high level of security and trustlessness.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="social-links">
-                <a href="https://twitter.com/deBridgeFinance" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://docs.debridge.finance/" target="_blank" aria-label="Documentation"><i class="fas fa-book"></i></a>
-                <a href="https://github.com/debridge-finance" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-            <p>Made with 💜 for a decentralized future.</p>
-        </footer>
+      <h1>Manta Bridge — Cross-Chain on Manta Network</h1>
+      <p class="tagline">
+        Use <strong>Manta Bridge</strong> for secure, auditable routes across the <strong>Manta Network</strong> ecosystem.
+        This guide explains route selection, finality & withdrawal windows, fees (L1/L2 gas + relayer/proof), min-received protection,
+        MEV-aware execution, KPIs, and an operations runbook.
+      </p>
+      <div style="margin-top:18px">
+        <span class="badge">Manta Bridge</span>
+        <span class="badge">Manta Network</span>
+        <span class="badge">Finality & Proofs</span>
+        <span class="badge">MEV-Aware</span>
+        <span class="badge">Min-Received Guards</span>
+      </div>
+      <div style="margin-top:26px">
+        <a class="cta-button" href="#" target="_blank" rel="noopener">Open Manta Portal (placeholder) →</a>
+      </div>
     </div>
-    
+  </div>
+
+  <div class="container">
+    <!-- Protocol Overview -->
+    <section id="protocol-overview">
+      <h2>Manta Bridge Overview: Models, Routing & Finality on Manta Network</h2>
+      <p>
+        <strong>Manta Bridge</strong> connects supported networks to and from the <strong>Manta Network</strong> stack. The route selector weighs gas on origin/destination,
+        any relayer/proof costs, available liquidity after arrival, and time-to-finality. The objective is the best <em>effective outcome</em> —
+        not just a headline quote — with clear steps and predictable settlement.
+      </p>
+
+      <h3>Core Components in Manta Bridge (Manta Network)</h3>
+      <ul>
+        <li><strong>Route Selector:</strong> Chooses canonical paths; penalizes gas-heavy or slow-finality routes; surfaces ETA and cost breakdown.</li>
+        <li><strong>Execution Kernel:</strong> Batches approvals + bridge calls; enforces strict <code>minReceived</code>; fails fast on adverse re-quotes.</li>
+        <li><strong>Risk Controls:</strong> Token allowlists, spender verification, minimal-allowance policy, and destination sanity checks.</li>
+      </ul>
+
+      <h3>Best Execution with Manta Bridge</h3>
+      <ul>
+        <li><strong>Effective price:</strong> Include L1/L2 gas, relayer/proof fees, and optional pre/post-swap costs; measure by realized net.</li>
+        <li><strong>Liquidity depth:</strong> If you plan to swap after arrival, check destination pools on <strong>Manta Network</strong> first.</li>
+        <li><strong>Reliability:</strong> For size, split into tranches; verify settlement between stages; adapt to network load.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Note:</strong> When time is critical, prefer routes with faster finality even at a slightly higher relayer/proof cost.
+        For cost-sensitive flows, choose slower-but-cheaper routes if your SLA permits.
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section id="security">
+      <h2>Security & Operational Safety with Manta Bridge</h2>
+      <p>
+        Settlement is non-custodial to your wallet. Treat every action like production deployment: verify official links, contracts, and amounts.
+        <strong>Manta Bridge</strong> reduces operational risk with guard rails, but wallet hygiene still determines safety.
+      </p>
+
+      <h3>Wallet & Allowance Hygiene on Manta Network</h3>
+      <ul>
+        <li>Prefer a hardware wallet for approvals/initiations; confirm spender and exact allowance on-device.</li>
+        <li>Approve only the <em>minimum</em> required; periodically revoke stale allowances.</li>
+        <li>Bookmark official <strong>Manta Bridge</strong> / <strong>Manta Network</strong> URLs; avoid search-ad impostors and unsolicited “support”.</li>
+      </ul>
+
+      <h3>Threat Model & MEV Mitigations (Manta Bridge)</h3>
+      <ul>
+        <li><strong>Sandwich risk around swaps:</strong> Set conservative slippage; consider private/builder RPC; chunk large orders.</li>
+        <li><strong>Impostor tokens:</strong> Verify addresses/decimals; never trust tickers/icons alone.</li>
+        <li><strong>Volatile gas:</strong> During spikes, bump priority fee or wait for calmer windows; avoid resubmitting duplicates.</li>
+      </ul>
+    </section>
+
+    <!-- Functions -->
+    <section id="functions">
+      <h2>Key Functions: Manta Bridge, Min-Received & Optional Swaps</h2>
+
+      <h3>Canonical Bridging via Manta Bridge</h3>
+      <p>
+        Choose origin/destination, token, amount. Review the quote (gas + relayer/proof + <em>min received</em> bound).
+        Approve once per token/chain, then execute. Finality/exit windows depend on the route and network conditions.
+      </p>
+
+      <h3>Optional Pre/Post Swaps on Manta Network</h3>
+      <ul>
+        <li>Swap <em>before</em> bridging to consolidate assets; or <em>after</em> to reach deeper liquidity on destination.</li>
+        <li>Track <strong>price impact</strong> & <strong>slippage</strong>; prefer venues with audited contracts and depth on <strong>Manta Network</strong>.</li>
+        <li>For DCA/limits (if supported by your UI), schedule execution post-finality only.</li>
+      </ul>
+
+      <h3>Execution KPIs for Manta Bridge</h3>
+      <table aria-label="KPI table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Target / Heuristic</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-row">
+            <td>Quoted → Realized Output</td>
+            <td>Δ ≤ 0.30–0.80%</td>
+            <td>Flags congestion, thin depth, or stale quotes.</td>
+          </tr>
+          <tr>
+            <td>Effective Price</td>
+            <td>≤ Quote × (1+0.30%)</td>
+            <td>Includes gas + proof/relayer + swap/partner fees.</td>
+          </tr>
+          <tr>
+            <td>Fail/Revert Rate</td>
+            <td>&lt; 1%</td>
+            <td>Re-tune slippage, chunk size, or RPC if higher.</td>
+          </tr>
+          <tr>
+            <td>Time-to-Finality</td>
+            <td>Prefer faster routes for urgency</td>
+            <td>Select by urgency vs cost; set expectations.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Runbook -->
+    <section id="runbook">
+      <h2>Runbook: Reliable Results with Manta Bridge</h2>
+
+      <h3>Before You Start (Manta Network)</h3>
+      <ul>
+        <li>Hold native gas on both ends (origin/destination) for approvals and finalize steps.</li>
+        <li>Verify token addresses/decimals; fee-on-transfer tokens can affect <em>minReceived</em>.</li>
+        <li>Bridge a micro-amount; confirm arrival, then proceed in tranches for size.</li>
+      </ul>
+
+      <h3>Slippage & Gas Guidance — Manta Bridge</h3>
+      <ul>
+        <li><strong>Deep stables/majors:</strong> 0.10–0.50% slippage.</li>
+        <li><strong>Mid-caps/moderate depth:</strong> 0.50–1.50% depending on venue and volatility.</li>
+        <li><strong>Illiquid:</strong> 1.50%+; split orders or pivot via deeper pairs after finality.</li>
+      </ul>
+
+      <h3>Troubleshooting — Common Issues on Manta Bridge</h3>
+      <ul>
+        <li class="warn"><strong>Pending too long:</strong> bump priority fee or switch RPC; avoid peak volatility; do not spam resubmits.</li>
+        <li class="err"><strong>Reverted / insufficient output:</strong> refresh quotes, modestly widen slippage, or reduce size and retry.</li>
+        <li><strong>Exit delay:</strong> monitor the route’s finality progress rather than broadcasting duplicates.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Tip:</strong> For large transfers on <strong>Manta Bridge</strong>, enforce <code>minReceived</code>, verify destination balance,
+        then continue with subsequent tranches on <strong>Manta Network</strong>.
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>Frequently Asked Questions — Manta Bridge & Manta Network</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">Is Manta Bridge safer than third-party fast bridges for Manta Network?</div>
+        <div class="faq-answer">
+          <p>Canonical <strong>Manta Bridge</strong> routes are typically the safest default: auditable steps, predictable finality, and consistent guard rails.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How are fees calculated on Manta Bridge?</div>
+        <div class="faq-answer">
+          <p>Quotes include L1/L2 gas, potential relayer/proof costs, and any optional swap/partner fees. Optimize by <em>effective price</em>, not just the headline.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I split a large transfer on Manta Network?</div>
+        <div class="faq-answer">
+          <p>Yes — recommended. Split into tranches, verify arrival after each, and adjust timing/fees during congestion.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Does Manta Bridge protect against MEV?</div>
+        <div class="faq-answer">
+          <ul>
+            <li>Use realistic slippage and submit during calmer periods.</li>
+            <li>Consider private/builder RPC for swaps and bump the priority fee during load.</li>
+            <li>Prefer deep venues on the destination <strong>Manta Network</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What if my Manta Bridge transaction fails or stalls?</div>
+        <div class="faq-answer">
+          <p>Check nonce/mempool, bump fee or retry later. For exit delays, track finality progress via the chosen route instead of duplicating submissions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="social-links">
+        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" aria-label="Documentation"><i class="fas fa-book"></i></a>
+        <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <p class="muted">Built for <strong>Manta Bridge</strong> on <strong>Manta Network</strong>. Ocean-teal theme, focused on safety, finality, and effective price.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Minimal FAQ toggle (accessible-ish)
+    document.querySelectorAll('.faq-question').forEach(q=>{
+      q.addEventListener('click',()=>{
+        q.classList.toggle('active');
+        const ans=q.nextElementSibling;
+        if(ans.style.maxHeight){
+          ans.style.maxHeight=null;
+          ans.style.paddingTop="0px";
+          ans.style.paddingBottom="0px";
+        }else{
+          ans.style.maxHeight=ans.scrollHeight+"px";
+          ans.style.paddingTop="10px";
+          ans.style.paddingBottom="16px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
     
 
 
